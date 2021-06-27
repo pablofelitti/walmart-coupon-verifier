@@ -1,0 +1,25 @@
+{
+  "name": "walmart-coupon-verifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=local_test node src/app.js",
+    "walmart": "NODE_ENV=local_test node src/walmart_local.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablofelitti/walmart-coupon-verifier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablofelitti/walmart-coupon-verifier/issues"
+  },
+  "homepage": "https://github.com/pablofelitti/walmart-coupon-verifier#readme",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "telebot": "^1.4.1"
+  }
+}

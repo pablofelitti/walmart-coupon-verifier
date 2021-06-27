@@ -1,0 +1,32 @@
+name: Deploy to production server
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: akhileshns/heroku-deploy@v3.6.8
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY_3}}
+        heroku_app_name: "walmart-coupon-verifier-prod"
+        heroku_email: "pablofelitti@gmail.com"
+        usedocker: true
+        docker_build_args: |
+          NODE_ENV
+          TELEGRAM_BOT_TOKEN
+          TELEGRAM_CHANNEL
+          WALMART_JOB_ENABLED
+          WALMART_CART_ID
+      env:
+        NODE_ENV: production
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN_3 }}
+        TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL_PROD }}
+        WALMART_JOB_ENABLED: false
+        WALMART_CART_ID: a52115c01b9346eaafb41d9313ffcf7a
